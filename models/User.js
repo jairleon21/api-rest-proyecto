@@ -30,6 +30,11 @@ userSchema.pre('save', async function (next) {
     }
 });
 
+//comparar contraseñas guardadas e ingresadas al login
+userSchema.methods.comparedPassword = async function (candidatePassword) {
+    return await bcrypt.compare(candidatePassword, this.password)
+};
+
 
 
 export const User = mongoose.model ('User', userSchema); 

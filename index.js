@@ -4,10 +4,11 @@ import express, { json } from 'express';
 import authroutes from './routes/authroutes.js';
 
 
- 
-
 const app = express();
+
 app.use(express.json());
+
+
 app.use('/', authroutes);
 
 
